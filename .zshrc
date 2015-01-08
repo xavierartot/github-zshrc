@@ -3,7 +3,7 @@ ZSH=$HOME/.oh-my-zsh
 #plugins=(html git css)
 
 # Customize to your needs...
-export PATH=$PATH:/Applications/MAMP/Library/bin:/Users/xartot/bash-wordpress:/usr/local/bin/node:/Users/xartot/.npm/bin
+export PATH=$PATH:/Applications/MAMP/Library/bin:/Users/xavi/bash-wordpress:/usr/local/bin/node:/Users/xavi/.npm/bin
 
 export WP_CLI_PHP="/Applications/MAMP/bin/php/php5.4.10/bin/php"
 #export WP_CLI_PHP="/usr/bin/php"
@@ -14,7 +14,7 @@ web(){
   cd /Applications/MAMP/htdocs/$1
 }
 # autocompletion pour WP_CLI
-#source //Users/xartot/scripts/wp-completion.bash
+#source //Users/xavi/scripts/wp-completion.bash
 #
 # WP-CLI Bash completions http://wp-cli.org/
 autoload bashcompinit
@@ -102,8 +102,6 @@ ft() {
   find . -name "$2" -exec grep -il "$1" {} \;
 }
 
-
-source ~/wp-completion.bash
 
 fancy-ctrl-z () {
   if [[ $#BUFFER -eq 0 ]]; then
