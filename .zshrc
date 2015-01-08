@@ -99,7 +99,7 @@ ft() {
 }
 
 
-ctrl-z () {
+fancy-ctrl-z () {
   if [[ $#BUFFER -eq 0 ]]; then
     fg
     zle redisplay
