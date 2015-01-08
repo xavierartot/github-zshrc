@@ -1,13 +1,9 @@
 ZSH=$HOME/.oh-my-zsh
 
-#plugins=(html git css)
-
 # Customize to your needs...
-export PATH=$PATH:/Applications/MAMP/Library/bin:/Users/xavi/bash-wordpress:/usr/local/bin/node:/Users/xavi/.npm/bin
-
-export WP_CLI_PHP="/Applications/MAMP/bin/php/php5.4.10/bin/php"
-#export WP_CLI_PHP="/usr/bin/php"
-
+export MAMP_PHP=/Applications/MAMP/bin/php/php5.6.2/bin
+export MAMP_BINS=/Applications/MAMP/Library/bin
+export PATH="$MAMP_PHP:$MAMP_BINS:/Users/xavi/bash-wordpress:/usr/local/bin/node:/Users/xavi/.npm/bin:$PATH"
 
 #open a project
 web(){
@@ -103,7 +99,7 @@ ft() {
 }
 
 
-fancy-ctrl-z () {
+ctrl-z () {
   if [[ $#BUFFER -eq 0 ]]; then
     fg
     zle redisplay
@@ -164,6 +160,3 @@ promptinit
 #prompt -l
 #prompt elite
 
-# autocompletion intelligente
-#autoload -Uz compinit
-#compinit
