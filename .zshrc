@@ -3,7 +3,7 @@ ZSH=$HOME/.oh-my-zsh
 # Customize to your needs...
 export MAMP_PHP=/Applications/MAMP/bin/php/php5.6.2/bin
 export MAMP_BINS=/Applications/MAMP/Library/bin
-export PATH="$MAMP_PHP:$MAMP_BINS:/Users/xavi/bash-wordpress:/usr/local/bin/node:/Users/xavi/.npm/bin:$PATH"
+export PATH="$MAMP_PHP:$MAMP_BINS:/usr/bin:/Users/xavi/bash-wordpress:/usr/local/bin/node:/Users/xavi/.npm/bin:/usr/sbin:/bin:$PATH"
 
 #open a project
 web(){
