@@ -3,10 +3,10 @@ ZSH=$HOME/.oh-my-zsh
 # Customize to your needs...
 export MAMP_PHP=/Applications/MAMP/bin/php/php5.6.2/bin
 export MAMP_BINS=/Applications/MAMP/Library/bin
-export PATH="$MAMP_PHP:$MAMP_BINS:/usr/bin:/Users/xavi/bash-wordpress:/usr/local/bin/node:/Users/xavi/.npm/bin:/usr/sbin:/bin:$PATH"
+export PATH="$MAMP_PHP:$MAMP_BINS:~/Librairy/:/usr/bin:/usr/local/lib:/Users/xavi/bash-wordpress:/usr/local/bin/:/Users/xavi/.npm/bin:/usr/sbin:/bin:/Users/xavi/arcanist/bin:$PATH"
 
 #open a project
-web(){
+w(){
   cd /Applications/MAMP/htdocs/$1
 }
 # autocompletion pour WP_CLI
@@ -113,8 +113,10 @@ bindkey '^Z' fancy-ctrl-z
 
 
 alias h="history"
+alias fuck='$(history -p \!\!)' 
 # Add and commit changes with Git
 alias m="git add -A;git commit -m"
+alias gc="git clone "
 #copy
 alias pc="pbcopy"
 #cppwd
@@ -125,6 +127,8 @@ alias pp="pbpaste"
 alias freq='cut -f1 -d" " ~/.bash_history | sort | uniq -c | sort -nr | head -n 30'
 
 alias ....='cd ../../../'
+alias .....='cd ../../../../'
+alias ......='cd ../../../../../'
 alias .4='cd ../../../../'
 alias .5='cd ../../../../../'
 alias .6='cd ../../../../../../'
@@ -160,3 +164,9 @@ promptinit
 #prompt -l
 #prompt elite
 
+alias update='sudo softwareupdate -i -a; brew update; brew upgrade'
+alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+
+alias flush="dscacheutil -flushcache"
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias ips="ifconfig -a | grep -o 'inet6\? \(\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+\)\|[a-fA-F0-9:]\+\)' | sed -e 's/inet6* //'"
