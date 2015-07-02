@@ -1,9 +1,12 @@
 ZSH=$HOME/.oh-my-zsh
 
 # Customize to your needs...
-export MAMP_PHP=/Applications/MAMP/bin/php/php5.6.2/bin
-export MAMP_BINS=/Applications/MAMP/Library/bin
-export PATH="$MAMP_PHP:$MAMP_BINS:~/Librairy/:/usr/bin:/usr/local/lib:/Users/xavi/bash-wordpress:/usr/local/bin/:/Users/xavi/.npm/bin:/usr/sbin:/bin:/Users/xavi/arcanist/bin:$PATH"
+#export MAMP_PHP=/Applications/MAMP/bin/php/php5.6.2/bin
+#export MAMP_BINS=/Applications/MAMP/Library/bin
+#export PATH="$MAMP_PHP:$MAMP_BINS:/usr/local/bin:~/Library:/usr/local/lib:/Users/xavi/bash-wordpress:/Users/xavi/.npm/bin:/usr/sbin:/bin:/Users/xavi/arcanist/bin:/usr/bin:$PATH"
+
+#export PATH=/usr/local/bin:/usr/local/Cellar/vim/7.4.712_1:$PATH
+export PATH=/usr/local/bin:/usr/local/Cellar:/Users/xavi/.npm/bin:/usr/bin:$PATH
 
 #open a project
 w(){
@@ -170,3 +173,4 @@ alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 alias flush="dscacheutil -flushcache"
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias ips="ifconfig -a | grep -o 'inet6\? \(\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+\)\|[a-fA-F0-9:]\+\)' | sed -e 's/inet6* //'"
+alias rd="rm -Rf"
