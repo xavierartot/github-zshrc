@@ -1,12 +1,19 @@
 ZSH=$HOME/.oh-my-zsh
 
+plugins=(git bower meteor npm web-search)
+#plugins=(git vi-mode bower brew common-aliases meteor node npm osx terminalapp web-search vagrant)
+
+#set editing-mode vi
+#set keymap vi-command
+
 # Customize to your needs...
 #export MAMP_PHP=/Applications/MAMP/bin/php/php5.6.2/bin
 #export MAMP_BINS=/Applications/MAMP/Library/bin
 #export PATH="$MAMP_PHP:$MAMP_BINS:/usr/local/bin:~/Library:/usr/local/lib:/Users/xavi/bash-wordpress:/Users/xavi/.npm/bin:/usr/sbin:/bin:/Users/xavi/arcanist/bin:/usr/bin:$PATH"
 
-#export PATH=/usr/local/bin:/usr/local/Cellar/vim/7.4.712_1:$PATH
-export PATH=/usr/local/bin:/usr/local/Cellar:/Users/xavi/.npm/bin:/usr/bin:$PATH
+#export CELLAR=/usr/local/bin:/usr/local/Cellar:$PATH
+#export PATH='/usr/local/bin:/usr/local/Cellar:/Users/xavi/.npm/bin:/usr/bin:/usr/local/lib:/Users/xavi/bash-wordpress:/Users/xavi/.npm/bin:/usr/local/bin/npm:$PATH'
+export PATH="/usr/local/bin:$CELLAR:~/Library:/usr/local/lib:/Users/xavi/bash-wordpress:/Users/xavi/.npm/bin:/usr/sbin:/bin:/Users/xavi/arcanist/bin:/usr/bin:$PATH"
 
 #open a project
 w(){
@@ -60,7 +67,6 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 setopt correctall
@@ -174,3 +180,5 @@ alias flush="dscacheutil -flushcache"
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias ips="ifconfig -a | grep -o 'inet6\? \(\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+\)\|[a-fA-F0-9:]\+\)' | sed -e 's/inet6* //'"
 alias rd="rm -Rf"
+
+
