@@ -1,6 +1,6 @@
 ZSH=$HOME/.oh-my-zsh
 
-plugins=(git bower meteor npm web-search)
+plugins=(git bower brew)
 #plugins=(git vi-mode bower brew common-aliases meteor node npm osx terminalapp web-search vagrant)
 
 #set editing-mode vi
