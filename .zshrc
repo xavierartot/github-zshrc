@@ -1,78 +1,98 @@
-ZSH=$HOME/.oh-my-zsh
+# Path to your oh-my-zsh installation.
+export ZSH=/Users/xavi/.oh-my-zsh
 
-plugins=(git bower brew)
-#plugins=(git vi-mode bower brew common-aliases meteor node npm osx terminalapp web-search vagrant)
 
-#set editing-mode vi
-#set keymap vi-command
-
-# Customize to your needs...
-#export MAMP_PHP=/Applications/MAMP/bin/php/php5.6.2/bin
-#export MAMP_BINS=/Applications/MAMP/Library/bin
-#export PATH="$MAMP_PHP:$MAMP_BINS:/usr/local/bin:~/Library:/usr/local/lib:/Users/xavi/bash-wordpress:/Users/xavi/.npm/bin:/usr/sbin:/bin:/Users/xavi/arcanist/bin:/usr/bin:$PATH"
-
-#export CELLAR=/usr/local/bin:/usr/local/Cellar:$PATH
-#export PATH='/usr/local/bin:/usr/local/Cellar:/Users/xavi/.npm/bin:/usr/bin:/usr/local/lib:/Users/xavi/bash-wordpress:/Users/xavi/.npm/bin:/usr/local/bin/npm:$PATH'
-export PATH="/usr/local/bin:$CELLAR:~/Library:/usr/local/lib:/Users/xavi/bash-wordpress:/Users/xavi/.npm/bin:/usr/sbin:/bin:/Users/xavi/arcanist/bin:/usr/bin:$PATH"
-
-#open a project
-w(){
-  cd /Applications/MAMP/htdocs/$1
-}
-# autocompletion pour WP_CLI
-#source //Users/xavi/scripts/wp-completion.bash
-#
-# WP-CLI Bash completions http://wp-cli.org/
-autoload bashcompinit
-bashcompinit
-# initialize autocomplete here, otherwise functions won't be loaded
-# also load compdef so git-completion doesn't complain about no compdef
-autoload -U compinit compdef
-compinit
-#source $HOME/.wp-cli/vendor/wp-cli/wp-cli/utils/wp-completion.bash
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-# xav from: https://coderwall.com/p/e-tsng
-ZSH_THEME="gitsome"
-#ZSH_THEME="xav"
-#ZSH_THEME="arrow"
-#ZSH_THEME="apple"
+
+ZSH_THEME="cobalt2"
+#ZSH_THEME="agnoster"
+#ZSH_THEME="sunrise"
+#ZSH_THEME="gitsome"
 #ZSH_THEME="robbyrussell"
-#ZSH_THEME="pygmalion"
 
+# Uncomment the following line to use case-sensitive completion.
+ CASE_SENSITIVE="true"
 
-# Set to this to use case-sensitive completion
-CASE_SENSITIVE="true"
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+ #HYPHEN_INSENSITIVE="true"
 
-# Comment this out to disable bi-weekly auto-update checks
+# Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
-# Uncomment to change how often before auto-updates occur? (in days)
+# Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
 
-# Uncomment following line if you want to disable autosetting terminal title.
-DISABLE_AUTO_TITLE="true"
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
 
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-COMPLETION_WAITING_DOTS="true"
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
 
-# Uncomment following line if you want to disable marking untracked files under
-# VCS as dirty. This makes repository status check for large repositories much,
-# much faster.
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git bower)
+
+# User configuration
+
+export PATH="/usr/local/Cellar:/usr/local/bin::~/Library:/usr/local/lib:/Users/xavi/bash-wordpress:/Applications/MAMP/Library/bin:/Users/xavi/.npm/bin:/usr/sbin:/bin:/Users/xavi/arcanist/bin:/usr/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin"
+# export MANPATH="/usr/local/man:$MANPATH"
+
 source $ZSH/oh-my-zsh.sh
 
-setopt correctall
+w(){
+  cd /Applications/MAMP/htdocs/$1
+}
 
-# autocompletion git
-# source ~/.git-completion.bash
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # cd let you do a cd AND a ls in the same command
 # http://unix.stackexchange.com/questions/20396/make-cd-automatically-ls
@@ -154,8 +174,9 @@ alias lt='ls --sort=time'
 alias llt='ll --sort=time'
 # This alias recursively destroys all .DS_Store files in the folder I am currently in
 alias killDS='find . -name .DS_Store -type f -delete'
+#don't display the warning 'swapfile and backup
 alias vi='vim'
-alias v='vim'
+alias v='vim -n'
 
 # Softwares
 alias firefox='open -a firefox'
@@ -180,5 +201,3 @@ alias flush="dscacheutil -flushcache"
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias ips="ifconfig -a | grep -o 'inet6\? \(\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+\)\|[a-fA-F0-9:]\+\)' | sed -e 's/inet6* //'"
 alias rd="rm -Rf"
-
-
