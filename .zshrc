@@ -56,11 +56,11 @@ ZSH_THEME="cobalt2"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git bower)
+plugins=(git bower wp-cli)
 
 # User configuration
-
-export PATH="/usr/local/Cellar:/usr/local/bin::~/Library:/usr/local/lib:/Users/xavi/bash-wordpress:/Applications/MAMP/Library/bin:/Users/xavi/.npm/bin:/usr/sbin:/bin:/Users/xavi/arcanist/bin:/usr/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin"
+export MAMP_PHP=/Applications/MAMP/bin/php/php5.6.2/bin
+export PATH="/Users/xavi/bin:$MAMP_PHP:$PATH:/usr/local/Cellar:/usr/local/bin:~/Library:/usr/local/lib:/Users/xavi/bash-wordpress:/Users/xavi/.npm/bin:/usr/sbin:/bin:/Users/xavi/arcanist/bin:/usr/bin:/usr/local/bin:/bin:/opt/X11/bin:/usr/local/git/bin:/usr/local/bin/composer"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -201,3 +201,5 @@ alias flush="dscacheutil -flushcache"
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias ips="ifconfig -a | grep -o 'inet6\? \(\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+\)\|[a-fA-F0-9:]\+\)' | sed -e 's/inet6* //'"
 alias rd="rm -Rf"
+alias simulator"open -a /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app"
+#alias mysql="/Applications/MAMP/Library/bin/mysql"
