@@ -56,7 +56,7 @@ ZSH_THEME="cobalt2"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git bower wp-cli)
+plugins=(git bower)
 
 # User configuration
 export MAMP_PHP=/Applications/MAMP/bin/php/php5.6.2/bin
@@ -146,12 +146,15 @@ alias fuck='$(history -p \!\!)'
 # Add and commit changes with Git
 alias m="git add -A;git commit -m"
 alias gc="git clone "
+alias gp="git push origin master"
+alias gp="git pull"
 #copy
-alias pc="pbcopy"
+#alias pc="pbcopy"
 #cppwd
-alias pcpwd="pwd | tr -d '\n' | pbcopy"
+alias pc="pwd | tr -d '\n' | pbcopy"
 #paste
-alias pp="pbpaste"
+#
+#alias pp="pbpaste"
 # Show which commands you use the most
 alias freq='cut -f1 -d" " ~/.bash_history | sort | uniq -c | sort -nr | head -n 30'
 
@@ -175,15 +178,36 @@ alias llt='ll --sort=time'
 # This alias recursively destroys all .DS_Store files in the folder I am currently in
 alias killDS='find . -name .DS_Store -type f -delete'
 #don't display the warning 'swapfile and backup
-alias vi='vim'
-alias v='vim -n'
+alias vi='nvim'
+alias v='nvim -n'
 
 # Softwares
 alias firefox='open -a firefox'
 alias ff='open -a firefox'
 alias chrome='open -a google\ chrome'
-alias safari='open -a safari'
+alias safari='open -a Safari.app'
 alias evernote='open -a evernote'
+alias transmission='open -a transmission'
+alias mamp='open -a MAMP'  
+alias transmit='open -a transmit'  
+alias message='open -a Messages.app'  
+alias iterm='open -a iTerm'  
+alias itunes='open -a Itunes.app'  
+alias ivacy='open -a ivacy'  
+alias password='open -a 1Password.app'  
+alias github='open -a GitHub\ Desktop.app'  
+alias skype='open -a Skype.app'  
+alias vlc='open -a VLC.app'  
+alias lynda='open -a Lynda.com.app'  
+alias lynda='open -a Dropbox.app'
+alias facetime='open -a FaceTime.app'
+alias slack='open -a Slack.app'
+alias textedit='open -a TextEdit.app'
+alias virtualbox='open -a VirtualBox.app'
+alias psd='open -a /Applications/Adobe\ Photoshop\ CS6/Adobe\ Photoshop\ CS6.app'
+alias photoshop='open -a /Applications/Adobe\ Photoshop\ cs6/Adobe\ Photoshop\ cs6.app'
+alias illustrator='open -a /Applications/Adobe\ Illustrator\ CS6/Adobe\ Illustrator\ CS6.app'
+alias karabiner='open -a Karabiner.app' 
 
 export PAGER=most
 
@@ -201,5 +225,5 @@ alias flush="dscacheutil -flushcache"
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias ips="ifconfig -a | grep -o 'inet6\? \(\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+\)\|[a-fA-F0-9:]\+\)' | sed -e 's/inet6* //'"
 alias rd="rm -Rf"
-alias simulator"open -a /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app"
+alias ios="open -a /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app"
 #alias mysql="/Applications/MAMP/Library/bin/mysql"
