@@ -65,10 +65,6 @@ export PATH="/Users/xavi/bin:$MAMP_PHP:$PATH:/usr/local/Cellar:/usr/local/bin:~/
 
 source $ZSH/oh-my-zsh.sh
 
-w(){
-  cd /Applications/MAMP/htdocs/$1
-}
-
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -147,7 +143,6 @@ alias fuck='$(history -p \!\!)'
 alias m="git add -A;git commit -m"
 alias gc="git clone "
 alias gp="git push origin master"
-alias gp="git pull"
 #copy
 #alias pc="pbcopy"
 #cppwd
@@ -178,36 +173,48 @@ alias llt='ll --sort=time'
 # This alias recursively destroys all .DS_Store files in the folder I am currently in
 alias killDS='find . -name .DS_Store -type f -delete'
 #don't display the warning 'swapfile and backup
-alias vi='nvim'
-alias v='nvim -n'
+alias vi='vim'
+alias v='vim -n'
 
-# Softwares
+# Softwares by alpha
+alias chrome='open -a google\ chrome'
+alias dropbox='open -a Dropbox.app'
+alias evernote='open -a evernote'
+alias facetime='open -a FaceTime.app'
 alias firefox='open -a firefox'
 alias ff='open -a firefox'
-alias chrome='open -a google\ chrome'
-alias safari='open -a Safari.app'
-alias evernote='open -a evernote'
-alias transmission='open -a transmission'
-alias mamp='open -a MAMP'  
-alias transmit='open -a transmit'  
-alias message='open -a Messages.app'  
-alias iterm='open -a iTerm'  
-alias itunes='open -a Itunes.app'  
-alias ivacy='open -a ivacy'  
-alias password='open -a 1Password.app'  
 alias github='open -a GitHub\ Desktop.app'  
-alias skype='open -a Skype.app'  
-alias vlc='open -a VLC.app'  
+alias illustrator='open -a /Applications/Adobe\ Illustrator\ CS6/Adobe\ Illustrator\ CS6.app'
+alias iterm='open -a iTerm'  
+alias itunes='open -a iTunes.app'  
+alias ios="open -a /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app"
+alias ivacy='open -a ivacy'  
+alias karabiner='open -a Karabiner.app' 
 alias lynda='open -a Lynda.com.app'  
-alias lynda='open -a Dropbox.app'
-alias facetime='open -a FaceTime.app'
+alias message='open -a Messages.app'  
+alias mamp='open -a MAMP'  
+alias password='open -a 1Password.app'  
+alias photoshop='open -a /Applications/Adobe\ Photoshop\ cs6/Adobe\ Photoshop\ cs6.app'
+alias psd='open -a /Applications/Adobe\ Photoshop\ CS6/Adobe\ Photoshop\ CS6.app'
+alias safari='open -a Safari.app'
+alias simulator="open -a /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app"
+alias skype='open -a Skype.app'  
 alias slack='open -a Slack.app'
 alias textedit='open -a TextEdit.app'
+alias transmission='open -a transmission'
+alias transmit='open -a transmit'  
 alias virtualbox='open -a VirtualBox.app'
-alias psd='open -a /Applications/Adobe\ Photoshop\ CS6/Adobe\ Photoshop\ CS6.app'
-alias photoshop='open -a /Applications/Adobe\ Photoshop\ cs6/Adobe\ Photoshop\ cs6.app'
-alias illustrator='open -a /Applications/Adobe\ Illustrator\ CS6/Adobe\ Illustrator\ CS6.app'
-alias karabiner='open -a Karabiner.app' 
+alias vlc='open -a VLC.app'  
+
+# Shortcuts
+alias d="cd ~/Documents/Dropbox"
+alias dl="cd ~/Downloads"
+alias dt="cd ~/Desktop"
+alias w="cd /Applications/MAMP/htdocs"
+
+#w(){
+  #cd /Applications/MAMP/htdocs/$1
+#}
 
 export PAGER=most
 
@@ -218,12 +225,39 @@ promptinit
 #prompt -l
 #prompt elite
 
+# Kill all the tabs in Chrome to free up memory
+# [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
+alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
+
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade'
+# Get week number
+alias week='date +%V'
+
+# Always enable colored `grep` output
+# Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
-alias flush="dscacheutil -flushcache"
+# Flush Directory Service cache
+alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
+
+#ip adresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en0"
 alias ips="ifconfig -a | grep -o 'inet6\? \(\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+\)\|[a-fA-F0-9:]\+\)' | sed -e 's/inet6* //'"
+
+# View HTTP traffic
+alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
+alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
 alias rd="rm -Rf"
-alias ios="open -a /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app"
-#alias mysql="/Applications/MAMP/Library/bin/mysql"
+
+# Empty the Trash on all mounted volumes and the main HDD.
+# Also, clear Apple’s System Logs to improve shell startup speed.
+# Finally, clear download history from quarantine. https://mths.be/bum
+alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'"
+
+
