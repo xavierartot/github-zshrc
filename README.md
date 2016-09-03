@@ -11,18 +11,24 @@ https://www.iterm2.com/
 node
 npm install npm -g && npm install gulp -g && npm install grunt -g && npm install -g browserify && npm install jshint -g
 
-**Vim**
-- install Vundle                   : git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-- install Syntastic                : cd ~/.vim/bundle && git clone --depth=1 https://github.com/scrooloose/syntastic.git
-
 **Karabiner**
 https://pqrs.org/osx/karabiner/
 key repeat: 190 - 40
 
 **seil**
-https://pqrs.org/osx/karabiner/seil.html.en
-Change the caps lock key cap lock : 53
-If you are using Seil to change the behavior of caps lock, open "System Preferences > Keyboard > Modifier Keys..." and change caps lock configuration to "No Action".
+- https://pqrs.org/osx/karabiner/seil.html.en
+- Change the caps lock key cap lock : 53
+- If you are using Seil to change the behavior of caps lock, open "System Preferences > Keyboard > Modifier Keys..." and change caps lock configuration to "No Action".
+
+**install Vim**
+- brew install vim
+
+if /usr/bin is before /usr/local/bin in your $PATH,
+hide the system Vim so the new version is found first
+- sudo mv /usr/bin/vim /usr/bin/vim72
+
+should return /usr/local/bin/vim
+- which vim vim
 
 **software:**
 - Xcode
