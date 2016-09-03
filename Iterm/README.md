@@ -10,3 +10,7 @@ Profiles -> Text : font -> 20pt, Monaco
 Profiles -> General : Command/Command: /bin/zsh
 Profiles -> Working Directory : reuse previous session directory
 
+**Fullscreen**
+- This command allows iTerm to work over fullscreen apps (source)[http://stackoverflow.com/questions/30456472/iterm2-slide-down-over-full-screen-app]
+- defaults write ~/Applications/iTerm.app/Contents/Info LSUIElement true
+
