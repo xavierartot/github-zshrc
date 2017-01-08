@@ -1,25 +1,18 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/xavi/.oh-my-zsh
-
-
+export ZSH=/Users/mbp/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-
 ZSH_THEME="cobalt2"
-#ZSH_THEME="agnoster"
-#ZSH_THEME="sunrise"
-#ZSH_THEME="gitsome"
-#ZSH_THEME="robbyrussell"
 
-# Uncomment the following line to use case-sensitive completion.
- CASE_SENSITIVE="true"
+# Uncomment the following line to use case-s ensitive completion.
+CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
- #HYPHEN_INSENSITIVE="true"
+# HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -59,8 +52,8 @@ ZSH_THEME="cobalt2"
 plugins=(git bower)
 
 # User configuration
-export MAMP_PHP=/Applications/MAMP/bin/php/php5.6.2/bin
-export PATH="/Users/xavi/bin:$MAMP_PHP:$PATH:/usr/local/Cellar:/usr/local/bin:~/Library:/usr/local/lib:/Users/xavi/bash-wordpress:/Users/xavi/.npm/bin:/usr/sbin:/bin:/Users/xavi/arcanist/bin:/usr/bin:/usr/local/bin:/bin:/opt/X11/bin:/usr/local/git/bin:/usr/local/bin/composer"
+export EDITOR='/usr/local/bin/vim'
+export PATH="/Users/mbp/.npm-packages/bin:/Users/mbp/bin:/Applications/MAMP/bin/php/php5.6.2/bin:/usr/local/bin:/usr/local/bin/mongodb/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/Cellar:~/Library:/usr/local/lib:/Users/mbp/bash-wordpress:/Users/mbp/.npm/bin:/usr/sbin:/bin:/Users/mbp/arcanist/bin:/usr/bin:/usr/local/bin:/bin:/opt/X11/bin:/usr/local/git/bin:/usr/local/bin/composer"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -89,6 +82,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
 
 # cd let you do a cd AND a ls in the same command
 # http://unix.stackexchange.com/questions/20396/make-cd-automatically-ls
@@ -138,7 +132,7 @@ bindkey '^Z' fancy-ctrl-z
 
 
 alias h="history"
-alias fuck='$(history -p \!\!)' 
+alias his='$(history -p \!\!)' 
 # Add and commit changes with Git
 alias m="git add -A;git commit -m"
 alias gc="git clone "
@@ -156,6 +150,8 @@ alias freq='cut -f1 -d" " ~/.bash_history | sort | uniq -c | sort -nr | head -n 
 alias ....='cd ../../../'
 alias .....='cd ../../../../'
 alias ......='cd ../../../../../'
+alias .2='cd ../../'
+alias .3='cd ../../../'
 alias .4='cd ../../../../'
 alias .5='cd ../../../../../'
 alias .6='cd ../../../../../../'
@@ -165,6 +161,8 @@ alias .8='cd ../../../../../../../../'
 alias rzsh='. ~/.zshrc'
 
 alias c='clear'
+alias cl='clear && ls'
+alias cll='clear && l'
 alias dir='ls -alv'
 alias le='ls --sort=extension'
 alias lle='ll --sort=extension'
@@ -207,7 +205,7 @@ alias virtualbox='open -a VirtualBox.app'
 alias vlc='open -a VLC.app'  
 
 # Shortcuts
-alias d="cd ~/Documents/Dropbox"
+alias db="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias w="cd /Applications/MAMP/htdocs"
@@ -216,7 +214,7 @@ alias w="cd /Applications/MAMP/htdocs"
   #cd /Applications/MAMP/htdocs/$1
 #}
 
-export PAGER=most
+#export PAGER=most
 
 # loading the prompt
 autoload -U promptinit
@@ -227,7 +225,7 @@ promptinit
 
 # Kill all the tabs in Chrome to free up memory
 # [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
-alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
+alias killChrome="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
 
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade'
 # Get week number
@@ -251,13 +249,22 @@ alias localip="ipconfig getifaddr en0"
 alias ips="ifconfig -a | grep -o 'inet6\? \(\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+\)\|[a-fA-F0-9:]\+\)' | sed -e 's/inet6* //'"
 
 # View HTTP traffic
-alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
+alias sniff="sudo grep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
 alias rd="rm -Rf"
+alias vc="v ~/.vimrc"
 
 # Empty the Trash on all mounted volumes and the main HDD.
 # Also, clear Apple’s System Logs to improve shell startup speed.
 # Finally, clear download history from quarantine. https://mths.be/bum
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'"
 
+function ffc-grunt() {
+  gc https://github.com/xavierartot/workflow-fcc $1 && cd $1 && npm install && grunt watch
+}
 
+function babel-project() {
+  gc https://github.com/xavierartot/Babel-Workflow-Free-Code-Camp $1 && cd $1 && npm install && gulp watch
+}
+
+zstyle ':completion:*' rehash true
