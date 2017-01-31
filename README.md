@@ -2,18 +2,23 @@
 
 #For a new Mac computer install zsh and Pretzo
 **http://sourabhbajaj.com/mac-setup/iTerm/zsh.html**
-  pip uninstall virtualenvwrapper
-or
-**install Zsh:**
-  curl -L github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
-restart Zsh
 
-
+**install Iterm**
+http://www.iterm2.com/
 
 - Xcode
     xcode-select --install
+**install Brew**
+chgrp -R admin /usr/local
+chmod -R g+w /usr/local
+chgrp -R admin /Library/Caches/Homebrew
+chmod -R g+w /Library/Caches/Homebrew
+- [http://brew.sh/](http://brew.sh/)
+- ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  pip install virtualenvwrapper
+
 - Git
-    https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+    [https://git-scm.com/download/mac](git)
 -node
     https://nodejs.org/en/
 - npm,jshint,etc 
@@ -30,8 +35,6 @@ restart Zsh
 **install Vim**
 - brew install vim 
 
-**install Brew**
-- "http://brew.sh/"   : /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 
 **to Install softwares:**
@@ -40,14 +43,15 @@ look at cask https://caskroom.github.io/
 **for Karabiner config**
 key repeat: 190 - 45
 installing developement software: Chrome; Karabiner; Virtualbox; curl; flux;dropbox; mamp
-brew cask iterm2 install google-chrome && brew cask install karabiner && brew cask install virtualbox && brew install curl && brew cask install flux && brew cask install mamp
+brew cask iterm2 install google-chrome karabiner virtualbox curl flux mamp
 - other software
 Some plugins to enable different files to work with Mac Quicklook. Includes features like syntax highlighting, markdown rendering, preview of jsons, patch files, csv, zip files etc.
 brew cask install vlc dropbox transmission transmission-remote-gui skypvlc dropbox transmission transmission-remote-gui skype eqlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql webpquicklook suspicious-package 1password cheatsheet appcleaner asepsis google-drive spectacle superduper
 
  
- 
- 
+**security** 
+virus : https://www.avira.com/#antivirus-overlay
+http://sourabhbajaj.com/mac-setup/Security/README.html
  
  
  
