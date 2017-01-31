@@ -259,6 +259,11 @@ alias sniff="sudo grep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
 alias rd="rm -Rf"
 alias md="mkdir "
+alias zc="vim ~/.zshrc"
+alias szc="source ~/.zshrc"
+alias vc="vim ~/.vimrc"
+alias svc="source ~/.vimrc"
+alias v.="vim ."
 
 # Empty the Trash on all mounted volumes and the main HDD.
 # Also, clear Apple’s System Logs to improve shell startup speed.

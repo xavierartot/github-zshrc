@@ -24,6 +24,14 @@ chmod -R g+w /Library/Caches/Homebrew
 - npm,jshint,etc 
     npm install npm -g && npm install gulp -g && npm install grunt -g && npm install -g browserify && npm install jshint -g
 
+zsh
+https://github.com/robbyrussell/oh-my-zsh/wiki/themes#agnoster
+theme agnoster in .zshrc
+Iterm color: Solarized Dark colorscheme and 
+download the fonts
+https://github.com/abertsch/Menlo-for-Powerline
+in Iterm text: Powerline-patched Menlo 18px
+
 
 **install**
 
