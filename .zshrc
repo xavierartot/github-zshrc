@@ -1,11 +1,50 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/mbp/.oh-my-zsh
+export ZSH=/Users/xavier/.oh-my-zsh
 
+. ~/z.sh
+
+# Check if zplug is installed
+if [[ ! -d ~/.zplug ]]; then
+  git clone https://github.com/zplug/zplug ~/.zplug
+  source ~/.zplug/init.zsh && zplug update --self
+fi
+
+# Essential
+source ~/.zplug/init.zsh
+
+# Make sure to use double quotes to prevent shell expansion
+zplug "zsh-users/zsh-syntax-highlighting"
+zplug "djui/alias-tips", defer:3
+zplug "zsh-users/zsh-history-substring-search"
+zplug "voronkovich/mysql.plugin.zsh", as:plugin
+zplug "plugins/git",   from:oh-my-zsh
+zplug "dracula/zsh", as:theme
+zplug "MichaelAquilina/zsh-you-should-use"
+zplug "lukechilds/zsh-better-npm-completion"
+zplug "djui/alias-tips"
+
+# Add a bunch more of your favorite packages!
+
+# Install packages that have not been installed yet
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    else
+        echo
+    fi
+fi
+
+zplug load
+
+
+source ~/Projects/config/env.sh
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="cobalt2"
+ZSH_THEME="agnoster"
+#ZSH_THEME="pygmalion"
 
 # Uncomment the following line to use case-s ensitive completion.
 #CASE_SENSITIVE="true"
@@ -49,11 +88,11 @@ ZSH_THEME="cobalt2"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git bower)
+plugins=(git bower osx colored-man-pages colorize vi-mode node web-search brew npm)
 
 # User configuration
 export EDITOR='/usr/local/bin/vim'
-export PATH="/Users/mbp/.npm-packages/bin:/Users/mbp/bin:/Applications/MAMP/bin/php/php5.6.2/bin:/usr/local/bin:/usr/local/bin/mongodb/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/Cellar:~/Library:/usr/local/lib:/Users/mbp/bash-wordpress:/Users/mbp/.npm/bin:/usr/sbin:/bin:/Users/mbp/arcanist/bin:/usr/bin:/usr/local/bin:/bin:/opt/X11/bin:/usr/local/git/bin:/usr/local/bin/composer"
+export PATH="/Applications/MAMP/Library/bin/mysql:/Applications/MAMP/bin/php/php7.1.1/bin:/Users/xavier/.npm-packages/bin:/Users/xavier/bin:/usr/local/bin:/usr/local/bin/mongodb/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/Cellar:~/Library:/usr/local/lib:/Users/xavier/bash-wordpress:/Users/xavier/.npm/bin:/usr/sbin:/bin:/Users/xavier/arcanist/bin:/usr/bin:/usr/local/bin:/bin:/opt/X11/bin:/usr/local/git/bin:/usr/local/bin/composer"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -209,7 +248,11 @@ alias db="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias w="cd /Applications/MAMP/htdocs"
-
+alias ascensionTrellis="/Applications/MAMP/htdocs/ascension/site/web/wp/wp-content/themes/"
+alias ascension-siteTrellis="/Applications/MAMP/htdocs/ascension/site/web/wp/wp-content/"
+alias ascension-pluginTrellis="/Applications/MAMP/htdocs/ascension/site/web/wp/wp-content/plugins/"
+alias smilecare="/Applications/MAMP/htdocs/new-smilecare/wp-content/themes/n-smilcare"
+alias trellis="/Applications/MAMP/htdocs/ascension/trellis/"
 #w(){
   #cd /Applications/MAMP/htdocs/$1
 #}
@@ -259,11 +302,28 @@ alias sniff="sudo grep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
 alias rd="rm -Rf"
 alias md="mkdir "
-alias zc="vim ~/.zshrc"
+
 alias szc="source ~/.zshrc"
+alias szsh="source ~/.zshrc"
+alias sz="source ~/.zshrc"
+alias zs="source ~/.zshrc"
+alias sv="source ~/.vimrc"
+alias vs="source ~/.vimrc"
+
+alias zc="vim ~/.zshrc"
+alias cz="vim ~/.zshrc"
 alias vc="vim ~/.vimrc"
-alias svc="source ~/.vimrc"
+alias cv="vim ~/.vimrc"
+
 alias v.="vim ."
+alias lo="ls -t"
+alias sm="cd /Applications/MAMP/htdocs/smilecare/wp-content/themes/smilecare && l"
+alias smile="cd /Applications/MAMP/htdocs/smilecare/wp-content/themes/smilecare && l"
+alias smilecare="cd /Applications/MAMP/htdocs/smilecare/wp-content/themes/smilecare && l"
+alias mysql="/Applications/MAMP/Library/bin/mysql"
+alias gw="gulp watch"
+alias ggw="gulp && gulp watch"
+alias gpd="gulp --production"
 
 # Empty the Trash on all mounted volumes and the main HDD.
 # Also, clear Apple’s System Logs to improve shell startup speed.
@@ -277,5 +337,23 @@ function babel-project() {
 function babel() {
   gc https://github.com/xavierartot/Babel-Workflow-Free-Code-Camp $1 && cd $1 && npm install && gulp && gulp watch
 }
+
+#list the files hidden
+alias lh="ls -ld .?*"
+
+alias gitlog="git log --graph -- branches --pretty=format:'%d"
+alias o="open -a"
+
+
+alias ofd="open ."
+alias of="open ."
+alias fo="open ."
+alias ql="quick-look"
+alias mp="man-preview" 
+
+alias g="google"  
+
+accept-line() {: "${BUFFER:="ls -lah"}"; zle ".$WIDGET"}
+zle -N accept-line
 
 zstyle ':completion:*' rehash true
