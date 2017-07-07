@@ -334,11 +334,17 @@ alias et="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv 
 function babel-project() {
   gc https://github.com/xavierartot/Babel-Workflow-Free-Code-Camp $1 && cd $1 && npm install && gulp && gulp watch
 }
+
 function babel() {
   gc https://github.com/xavierartot/Babel-Workflow-Free-Code-Camp $1 && cd $1 && npm install && gulp && gulp watch
 }
+
 function landing-page() {
   gc https://github.com/xavierartot/Babel-Workflow-Free-Code-Camp $1 && cd $1 && npm install && gulp && gulp watch
+}
+
+function landing-page() {
+  extract https://github.com/roots/sage/archive/8.5.1.tar.gz $1 && cd $1 && npm install && gulp && gulp watch
 }
 
 #list the files hidden
@@ -354,10 +360,10 @@ alias fo="open ."
 alias ql="quick-look"
 alias mp="man-preview" 
 
-alias web="google"  
+alias web="google"
 alias g="git"  
 
-accept-line() {: "${BUFFER:="ls -lah"}"; zle ".$WIDGET"}
+accept-line() {: "${BUFFER:="l"}"; zle ".$WIDGET"}
 zle -N accept-line
 
 zstyle ':completion:*' rehash true
