@@ -337,6 +337,9 @@ function babel-project() {
 function babel() {
   gc https://github.com/xavierartot/Babel-Workflow-Free-Code-Camp $1 && cd $1 && npm install && gulp && gulp watch
 }
+function landing-page() {
+  gc https://github.com/xavierartot/Babel-Workflow-Free-Code-Camp $1 && cd $1 && npm install && gulp && gulp watch
+}
 
 #list the files hidden
 alias lh="ls -ld .?*"
@@ -351,7 +354,8 @@ alias fo="open ."
 alias ql="quick-look"
 alias mp="man-preview" 
 
-alias g="google"  
+alias web="google"  
+alias g="git"  
 
 accept-line() {: "${BUFFER:="ls -lah"}"; zle ".$WIDGET"}
 zle -N accept-line
