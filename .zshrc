@@ -1,53 +1,23 @@
+# If you come from bash you might have to change your $PATH.
+export PATH=$HOME/bin:/usr/local/bin:$HOME/.composer/vendor/bin:$PATH
+
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/xavier/.oh-my-zsh
+export ZSH=/Users/xav/.oh-my-zsh
 
-. ~/z.sh
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="robbyrussell"
 
-# Check if zplug is installed
-if [[ ! -d ~/.zplug ]]; then
-  git clone https://github.com/zplug/zplug ~/.zplug
-  source ~/.zplug/init.zsh && zplug update --self
-fi
+# Set list of themes to load
+# Setting this variable when ZSH_THEME=random
+# cause zsh load theme from this variable instead of
+# looking in ~/.oh-my-zsh/themes/
+# An empty array have no effect
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
-# Essential
-source ~/.zplug/init.zsh
-
-# Make sure to use double quotes to prevent shell expansion
-zplug "zsh-users/zsh-syntax-highlighting"
-zplug "djui/alias-tips", defer:3
-zplug "zsh-users/zsh-history-substring-search"
-zplug "voronkovich/mysql.plugin.zsh", as:plugin
-zplug "plugins/git",   from:oh-my-zsh
-zplug "dracula/zsh", as:theme
-zplug "MichaelAquilina/zsh-you-should-use"
-zplug "lukechilds/zsh-better-npm-completion"
-zplug "djui/alias-tips"
-
-# Add a bunch more of your favorite packages!
-
-# Install packages that have not been installed yet
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    else
-        echo
-    fi
-fi
-
-zplug load
-
-
-source ~/Projects/config/env.sh
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="agnoster"
-#ZSH_THEME="pygmalion"
-
-# Uncomment the following line to use case-s ensitive completion.
-#CASE_SENSITIVE="true"
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
@@ -88,14 +58,15 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git bower osx colored-man-pages colorize vi-mode node web-search brew npm)
-
-# User configuration
-export EDITOR='/usr/local/bin/vim'
-export PATH="/Applications/MAMP/Library/bin/mysql:/Applications/MAMP/bin/php/php7.1.1/bin:/Users/xavier/.npm-packages/bin:/Users/xavier/bin:/usr/local/bin:/usr/local/bin/mongodb/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/Cellar:~/Library:/usr/local/lib:/Users/xavier/bash-wordpress:/Users/xavier/.npm/bin:/usr/sbin:/bin:/Users/xavier/arcanist/bin:/usr/bin:/usr/local/bin:/bin:/opt/X11/bin:/usr/local/git/bin:/usr/local/bin/composer"
-# export MANPATH="/usr/local/man:$MANPATH"
+plugins=(
+  git
+)
 
 source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -111,7 +82,7 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -121,8 +92,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-
+#
 # cd let you do a cd AND a ls in the same command
 # http://unix.stackexchange.com/questions/20396/make-cd-automatically-ls
 function cd {
@@ -248,6 +218,7 @@ alias db="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias w="cd /Applications/MAMP/htdocs"
+alias react="cd /Applications/MAMP/htdocs/js/react"
 alias ascensionTrellis="/Applications/MAMP/htdocs/ascension/site/web/wp/wp-content/themes/"
 alias ascension-siteTrellis="/Applications/MAMP/htdocs/ascension/site/web/wp/wp-content/"
 alias ascension-pluginTrellis="/Applications/MAMP/htdocs/ascension/site/web/wp/wp-content/plugins/"
@@ -317,8 +288,6 @@ alias cv="vim ~/.vimrc"
 
 alias v.="vim ."
 alias lo="ls -t"
-alias sm="cd /Applications/MAMP/htdocs/smilecare/wp-content/themes/smilecare && l"
-alias smile="cd /Applications/MAMP/htdocs/smilecare/wp-content/themes/smilecare && l"
 alias smilecare="cd /Applications/MAMP/htdocs/smilecare/wp-content/themes/smilecare && l"
 alias mysql="/Applications/MAMP/Library/bin/mysql"
 alias gw="gulp watch"
@@ -363,7 +332,29 @@ alias mp="man-preview"
 alias web="google"
 alias g="git"  
 
+alias size="du -sh"
 accept-line() {: "${BUFFER:="l"}"; zle ".$WIDGET"}
 zle -N accept-line
 
 zstyle ':completion:*' rehash true
+
+alias ctags="`brew --prefix`/bin/ctags"
+
+
+#No match
+#function findDomain() {
+ #export SERVER=`whois $1 | grep -i whois\ server: | 
+   #awk '{print $3'}`
+ #whois -h $SERVER $1
+#}
+
+
+# Adding autocomplete for 'we'
+[ -f ~/.we_autocomplete ] && source ~/.we_autocomplete
+
+#quick look
+alias qlf='qlmanage -p "$@"'
+
+#how to convert extension jsx to js
+#brew install ren
+#ren -v "*.jsx" "#1.js"
