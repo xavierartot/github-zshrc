@@ -1,8 +1,8 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$HOME/.composer/vendor/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/.composer/vendor/bin:/Applications/MAMP/Library/bin/:/Users/xav/.local/lib/python2.7/site-packages/:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/xav/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -141,7 +141,7 @@ bindkey '^Z' fancy-ctrl-z
 
 
 alias h="history"
-alias his='$(history -p \!\!)' 
+alias his='$(history -p \!\!)'
 # Add and commit changes with Git
 alias m="git add -A;git commit -m"
 alias gc="git clone "
@@ -190,43 +190,38 @@ alias evernote='open -a evernote'
 alias facetime='open -a FaceTime.app'
 alias firefox='open -a firefox'
 alias ff='open -a firefox'
-alias github='open -a GitHub\ Desktop.app'  
+alias github='open -a GitHub\ Desktop.app'
 alias illustrator='open -a /Applications/Adobe\ Illustrator\ CS6/Adobe\ Illustrator\ CS6.app'
-alias iterm='open -a iTerm'  
-alias itunes='open -a iTunes.app'  
+alias iterm='open -a iTerm'
+alias itunes='open -a iTunes.app'
 alias ios="open -a /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app"
-alias ivacy='open -a ivacy'  
-alias karabiner='open -a Karabiner.app' 
-alias lynda='open -a Lynda.com.app'  
-alias message='open -a Messages.app'  
-alias mamp='open -a MAMP'  
-alias password='open -a 1Password.app'  
+alias ivacy='open -a ivacy'
+alias karabiner='open -a Karabiner.app'
+alias lynda='open -a Lynda.com.app'
+alias message='open -a Messages.app'
+alias mamp='open -a MAMP'
+alias password='open -a 1Password.app'
 alias photoshop='open -a /Applications/Adobe\ Photoshop\ cs6/Adobe\ Photoshop\ cs6.app'
 alias psd='open -a /Applications/Adobe\ Photoshop\ CS6/Adobe\ Photoshop\ CS6.app'
 alias safari='open -a Safari.app'
 alias simulator="open -a /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app"
-alias skype='open -a Skype.app'  
+alias skype='open -a Skype.app'
 alias slack='open -a Slack.app'
 alias textedit='open -a TextEdit.app'
 alias transmission='open -a transmission'
-alias transmit='open -a transmit'  
+alias transmit='open -a transmit'
 alias virtualbox='open -a VirtualBox.app'
-alias vlc='open -a VLC.app'  
+alias vlc='open -a VLC.app'
 
 # Shortcuts
-alias db="cd ~/Documents/Dropbox"
-alias dl="cd ~/Downloads"
-alias dt="cd ~/Desktop"
+alias db="cd $HOME/Dropbox"
+alias dl="cd $HOME/Downloads"
+alias dt="cd $HOME/Desktop"
 alias w="cd /Applications/MAMP/htdocs"
-alias react="cd /Applications/MAMP/htdocs/js/react"
-alias ascensionTrellis="/Applications/MAMP/htdocs/ascension/site/web/wp/wp-content/themes/"
-alias ascension-siteTrellis="/Applications/MAMP/htdocs/ascension/site/web/wp/wp-content/"
-alias ascension-pluginTrellis="/Applications/MAMP/htdocs/ascension/site/web/wp/wp-content/plugins/"
-alias smilecare="/Applications/MAMP/htdocs/new-smilecare/wp-content/themes/n-smilcare"
-alias trellis="/Applications/MAMP/htdocs/ascension/trellis/"
-#w(){
-  #cd /Applications/MAMP/htdocs/$1
-#}
+alias redux='/Applications/MAMP/htdocs/nanodegree/redux'
+alias react='/Applications/MAMP/htdocs/nanodegree/react'
+alias js='/Applications/MAMP/htdocs/js'
+alias resume='cd $HOME/Dropbox/Resume'
 
 #export PAGER=most
 
@@ -288,8 +283,7 @@ alias cv="vim ~/.vimrc"
 
 alias v.="vim ."
 alias lo="ls -t"
-alias smilecare="cd /Applications/MAMP/htdocs/smilecare/wp-content/themes/smilecare && l"
-alias mysql="/Applications/MAMP/Library/bin/mysql"
+alias mysql="/Applications/MAMP/Library/bin/mysql --no-defaults -u root -proot"
 alias gw="gulp watch"
 alias ggw="gulp && gulp watch"
 alias gpd="gulp --production"
@@ -327,10 +321,10 @@ alias ofd="open ."
 alias of="open ."
 alias fo="open ."
 alias ql="quick-look"
-alias mp="man-preview" 
+alias mp="man-preview"
 
 alias web="google"
-alias g="git"  
+alias g="git"
 
 alias size="du -sh"
 accept-line() {: "${BUFFER:="l"}"; zle ".$WIDGET"}
@@ -340,10 +334,12 @@ zstyle ':completion:*' rehash true
 
 alias ctags="`brew --prefix`/bin/ctags"
 
+alias afplay="afplay /System/Library/Sounds/Submarine.aiff -v 10"
+
 
 #No match
 #function findDomain() {
- #export SERVER=`whois $1 | grep -i whois\ server: | 
+ #export SERVER=`whois $1 | grep -i whois\ server: |
    #awk '{print $3'}`
  #whois -h $SERVER $1
 #}
@@ -354,7 +350,6 @@ alias ctags="`brew --prefix`/bin/ctags"
 
 #quick look
 alias qlf='qlmanage -p "$@"'
-
 #how to convert extension jsx to js
 #brew install ren
 #ren -v "*.jsx" "#1.js"
