@@ -183,7 +183,7 @@ alias killDS='find . -name .DS_Store -type f -delete'
 alias vi='vim'
 alias v='vim -n'
 
-# Softwares by alpha
+# Softwares by alpha order
 alias chrome='open -a google\ chrome'
 alias dropbox='open -a Dropbox.app'
 alias evernote='open -a evernote'
@@ -214,14 +214,14 @@ alias virtualbox='open -a VirtualBox.app'
 alias vlc='open -a VLC.app'
 
 # Shortcuts
-alias db="cd $HOME/Dropbox"
-alias dl="cd $HOME/Downloads"
-alias dt="cd $HOME/Desktop"
+alias db="cd $HOME/Dropbox && l"
+alias dl="cd $HOME/Downloads && l"
+alias dt="cd $HOME/Desktop && l"
 alias w="cd /Applications/MAMP/htdocs"
-alias redux='/Applications/MAMP/htdocs/nanodegree/redux'
-alias react='/Applications/MAMP/htdocs/nanodegree/react'
-alias js='/Applications/MAMP/htdocs/js'
-alias resume='cd $HOME/Dropbox/Resume'
+alias redux='/Applications/MAMP/htdocs/nanodegree/redux && l'
+alias react='/Applications/MAMP/htdocs/nanodegree/react && l'
+alias js='/Applications/MAMP/htdocs/js && l'
+alias resume='cd $HOME/Dropbox/Resume && l'
 
 #export PAGER=most
 
