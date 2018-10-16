@@ -1,6 +1,12 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$HOME/.composer/vendor/bin:/Applications/MAMP/Library/bin/:/Users/xav/.local/lib/python2.7/site-packages/:$PATH
 
+#React-native Android
+#export PATH=$PATH:/Applications/Genymotion.app/Contents/MacOS/tools
+export ANDROID_HOME=$PATH:$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -98,6 +104,9 @@ source $ZSH/oh-my-zsh.sh
 function cd {
   builtin cd "$@" && ls -Fal
 }
+function cra() {
+  create-react-app $1 && cd $1/src && rm logo.svg index.css App.css && mkdir components && mkdir actions && mkdir reducers && touch actions/shared.js && touch reducers/index.js && vim components/App.js
+}
 
 extract () {
     if [ -f $1 ] ; then
@@ -156,16 +165,17 @@ alias pc="pwd | tr -d '\n' | pbcopy"
 # Show which commands you use the most
 alias freq='cut -f1 -d" " ~/.bash_history | sort | uniq -c | sort -nr | head -n 30'
 
-alias ....='cd ../../../'
-alias .....='cd ../../../../'
-alias ......='cd ../../../../../'
-alias .2='cd ../../'
-alias .3='cd ../../../'
-alias .4='cd ../../../../'
-alias .5='cd ../../../../../'
-alias .6='cd ../../../../../../'
-alias .7='cd ../../../../../../../'
-alias .8='cd ../../../../../../../../'
+alias ..='cd ../ && l'
+alias ....='cd ../../../ && l'
+alias .....='cd ../../../../ && l'
+alias ......='cd ../../../../../ && l'
+alias .2='cd ../../ && l'
+alias .3='cd ../../../ && l'
+alias .4='cd ../../../../ && l'
+alias .5='cd ../../../../../ && l'
+alias .6='cd ../../../../../../ && l'
+alias .7='cd ../../../../../../../ && l'
+alias .8='cd ../../../../../../../../ && l'
 # This alias reloads this file
 alias rzsh='. ~/.zshrc'
 
@@ -219,6 +229,7 @@ alias dl="cd $HOME/Downloads && l"
 alias dt="cd $HOME/Desktop && l"
 alias w="cd /Applications/MAMP/htdocs"
 alias redux='/Applications/MAMP/htdocs/nanodegree/redux && l'
+alias rn='/Applications/MAMP/htdocs/nanodegree/react-native && l'
 alias react='/Applications/MAMP/htdocs/nanodegree/react && l'
 alias js='/Applications/MAMP/htdocs/js && l'
 alias resume='cd $HOME/Dropbox/Resume && l'
@@ -288,6 +299,12 @@ alias gw="gulp watch"
 alias ggw="gulp && gulp watch"
 alias gpd="gulp --production"
 
+alias ys="yarn start"
+alias y="yarn"
+alias yi="yarn install"
+alias ya="yarn add"
+alias yys="yarn && yarn start"
+alias yr="yarn remove"
 # Empty the Trash on all mounted volumes and the main HDD.
 # Also, clear Apple’s System Logs to improve shell startup speed.
 # Finally, clear download history from quarantine. https://mths.be/bum
@@ -313,7 +330,6 @@ function landing-page() {
 #list the files hidden
 alias lh="ls -ld .?*"
 
-alias gitlog="git log --graph -- branches --pretty=format:'%d"
 alias o="open -a"
 
 
@@ -325,6 +341,7 @@ alias mp="man-preview"
 
 alias web="google"
 alias g="git"
+alias gau='git add --update'
 
 alias size="du -sh"
 accept-line() {: "${BUFFER:="l"}"; zle ".$WIDGET"}
@@ -336,7 +353,21 @@ alias ctags="`brew --prefix`/bin/ctags"
 
 alias afplay="afplay /System/Library/Sounds/Submarine.aiff -v 10"
 
+#https://opensource.com/article/18/9/tips-productivity-zsh
+alias -s {yml,yaml,json,js,md,lock,css,scss,less}=vim
+alias d='dirs -v'
+alias dten='dirs -v | head -10'
+alias 1='..'
+alias 2='...'
+alias 3='....'
+alias 4='.....'
+alias 5='......'
+alias 6='.......'
+alias 7='........'
+alias 8='.........'
+alias 9='..........'
 
+alias crna='create-react-native-app@latest '
 #No match
 #function findDomain() {
  #export SERVER=`whois $1 | grep -i whois\ server: |
@@ -353,3 +384,7 @@ alias qlf='qlmanage -p "$@"'
 #how to convert extension jsx to js
 #brew install ren
 #ren -v "*.jsx" "#1.js"
+
+# tabtab source for yarn package
+# uninstall by removing these lines or running `tabtab uninstall yarn`
+[[ -f /Users/xav/.config/yarn/global/node_modules/tabtab/.completions/yarn.zsh ]] && . /Users/xav/.config/yarn/global/node_modules/tabtab/.completions/yarn.zsh
