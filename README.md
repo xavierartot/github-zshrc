@@ -53,9 +53,7 @@ key repeat: 190 - 45
 installing developement software: Chrome; Karabiner; Virtualbox; curl; flux;dropbox; mamp
 brew cask iterm2 install google-chrome karabiner virtualbox curl flux mamp
 - other software
-Some plugins to enable different files to work with Mac Quicklook. Includes features like syntax highlighting, markdown rendering, preview of jsons, patch files, csv, zip files etc.
-brew cask install vlc dropbox transmission transmission-remote-gui skypvlc dropbox transmission transmission-remote-gui skype eqlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql webpquicklook suspicious-package 1password cheatsheet appcleaner asepsis google-drive spectacle superduper
-
+brew install --cask vlc dropbox transmission transmission-remote-gui dropbox transmission transmission-remote-gui skype qlmarkdown quicklook-json qlprettypatch quicklook-csv webpquicklook suspicious-package appcleaner vim node virtualbox iterm2
  
 **security** 
 virus : https://www.avira.com/#antivirus-overlay
