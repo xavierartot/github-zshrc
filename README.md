@@ -3,11 +3,6 @@
 #For a new Mac computer install zsh and Pretzo
 **http://sourabhbajaj.com/mac-setup/iTerm/zsh.html**
 
-**install Iterm**
-http://www.iterm2.com/
-
-- Xcode
-    xcode-select --install
 **install Brew**
 chgrp -R admin /usr/local
 chmod -R g+w /usr/local
@@ -17,10 +12,8 @@ chmod -R g+w /Library/Caches/Homebrew
 - ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   pip install virtualenvwrapper
 
-- Git
-    [https://git-scm.com/download/mac](git)
--node
-    https://nodejs.org/en/
+- Git, Node
+    brew install git && brew install node && brew install zsh
 - npm,jshint,etc 
     npm install npm -g && npm install gulp -g && npm install grunt -g && npm install -g browserify && npm install jshint -g
 
