@@ -46,8 +46,9 @@ key repeat: 190 - 45
 installing developement software: Chrome; Karabiner; Virtualbox; curl; flux;dropbox; mamp
 brew cask iterm2 install google-chrome karabiner virtualbox curl flux mamp
 - other software
-brew install --cask vlc dropbox transmission transmission-remote-gui dropbox transmission transmission-remote-gui skype qlmarkdown quicklook-json qlprettypatch quicklook-csv webpquicklook suspicious-package appcleaner vim node virtualbox iterm2
- 
+
+brew install --cask vlc dropbox transmission transmission-remote-gui dropbox transmission transmission-remote-gui skype qlmarkdown quicklook-json qlprettypatch quicklook-csv webpquicklook suspicious-package appcleaner vim node virtualbox iterm2 stats Itsycal bartender horse
+
 **security** 
 virus : https://www.avira.com/#antivirus-overlay
 http://sourabhbajaj.com/mac-setup/Security/README.html
